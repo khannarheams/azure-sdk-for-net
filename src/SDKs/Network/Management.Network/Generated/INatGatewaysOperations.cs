@@ -19,18 +19,18 @@ namespace Microsoft.Azure.Management.Network
     using System.Threading.Tasks;
 
     /// <summary>
-    /// DdosProtectionPlansOperations operations.
+    /// NatGatewaysOperations operations.
     /// </summary>
-    public partial interface IDdosProtectionPlansOperations
+    public partial interface INatGatewaysOperations
     {
         /// <summary>
-        /// Deletes the specified DDoS protection plan.
+        /// Deletes the specified nat gateway.
         /// </summary>
         /// <param name='resourceGroupName'>
         /// The name of the resource group.
         /// </param>
-        /// <param name='ddosProtectionPlanName'>
-        /// The name of the DDoS protection plan.
+        /// <param name='natGatewayName'>
+        /// The name of the nat gateway.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -44,15 +44,18 @@ namespace Microsoft.Azure.Management.Network
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse> DeleteWithHttpMessagesAsync(string resourceGroupName, string ddosProtectionPlanName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse> DeleteWithHttpMessagesAsync(string resourceGroupName, string natGatewayName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Gets information about the specified DDoS protection plan.
+        /// Gets the specified nat gateway in a specified resource group.
         /// </summary>
         /// <param name='resourceGroupName'>
         /// The name of the resource group.
         /// </param>
-        /// <param name='ddosProtectionPlanName'>
-        /// The name of the DDoS protection plan.
+        /// <param name='natGatewayName'>
+        /// The name of the nat gateway.
+        /// </param>
+        /// <param name='expand'>
+        /// Expands referenced resources.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -69,18 +72,18 @@ namespace Microsoft.Azure.Management.Network
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<DdosProtectionPlan>> GetWithHttpMessagesAsync(string resourceGroupName, string ddosProtectionPlanName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<NatGateway>> GetWithHttpMessagesAsync(string resourceGroupName, string natGatewayName, string expand = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Creates or updates a DDoS protection plan.
+        /// Creates or updates a nat gateway.
         /// </summary>
         /// <param name='resourceGroupName'>
         /// The name of the resource group.
         /// </param>
-        /// <param name='ddosProtectionPlanName'>
-        /// The name of the DDoS protection plan.
+        /// <param name='natGatewayName'>
+        /// The name of the nat gateway.
         /// </param>
         /// <param name='parameters'>
-        /// Parameters supplied to the create or update operation.
+        /// Parameters supplied to the create or update nat gateway operation.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -97,19 +100,18 @@ namespace Microsoft.Azure.Management.Network
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<DdosProtectionPlan>> CreateOrUpdateWithHttpMessagesAsync(string resourceGroupName, string ddosProtectionPlanName, DdosProtectionPlan parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<NatGateway>> CreateOrUpdateWithHttpMessagesAsync(string resourceGroupName, string natGatewayName, NatGateway parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Update a DDoS protection plan tags
+        /// Updates nat gateway tags.
         /// </summary>
         /// <param name='resourceGroupName'>
         /// The name of the resource group.
         /// </param>
-        /// <param name='ddosProtectionPlanName'>
-        /// The name of the DDoS protection plan.
+        /// <param name='natGatewayName'>
+        /// The name of the nat gateway.
         /// </param>
         /// <param name='parameters'>
-        /// Parameters supplied to the update DDoS protection plan resource
-        /// tags.
+        /// Parameters supplied to update nat gateway tags.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -126,9 +128,9 @@ namespace Microsoft.Azure.Management.Network
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<DdosProtectionPlan>> UpdateTagsWithHttpMessagesAsync(string resourceGroupName, string ddosProtectionPlanName, TagsObject parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<NatGateway>> UpdateTagsWithHttpMessagesAsync(string resourceGroupName, string natGatewayName, TagsObject parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Gets all DDoS protection plans in a subscription.
+        /// Gets all the Nat Gateways in a subscription.
         /// </summary>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -145,9 +147,9 @@ namespace Microsoft.Azure.Management.Network
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<IPage<DdosProtectionPlan>>> ListWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<IPage<NatGateway>>> ListAllWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Gets all the DDoS protection plans in a resource group.
+        /// Gets all nat gateways in a resource group.
         /// </summary>
         /// <param name='resourceGroupName'>
         /// The name of the resource group.
@@ -167,15 +169,15 @@ namespace Microsoft.Azure.Management.Network
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<IPage<DdosProtectionPlan>>> ListByResourceGroupWithHttpMessagesAsync(string resourceGroupName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<IPage<NatGateway>>> ListWithHttpMessagesAsync(string resourceGroupName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Deletes the specified DDoS protection plan.
+        /// Deletes the specified nat gateway.
         /// </summary>
         /// <param name='resourceGroupName'>
         /// The name of the resource group.
         /// </param>
-        /// <param name='ddosProtectionPlanName'>
-        /// The name of the DDoS protection plan.
+        /// <param name='natGatewayName'>
+        /// The name of the nat gateway.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -189,18 +191,18 @@ namespace Microsoft.Azure.Management.Network
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse> BeginDeleteWithHttpMessagesAsync(string resourceGroupName, string ddosProtectionPlanName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse> BeginDeleteWithHttpMessagesAsync(string resourceGroupName, string natGatewayName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Creates or updates a DDoS protection plan.
+        /// Creates or updates a nat gateway.
         /// </summary>
         /// <param name='resourceGroupName'>
         /// The name of the resource group.
         /// </param>
-        /// <param name='ddosProtectionPlanName'>
-        /// The name of the DDoS protection plan.
+        /// <param name='natGatewayName'>
+        /// The name of the nat gateway.
         /// </param>
         /// <param name='parameters'>
-        /// Parameters supplied to the create or update operation.
+        /// Parameters supplied to the create or update nat gateway operation.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -217,19 +219,18 @@ namespace Microsoft.Azure.Management.Network
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<DdosProtectionPlan>> BeginCreateOrUpdateWithHttpMessagesAsync(string resourceGroupName, string ddosProtectionPlanName, DdosProtectionPlan parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<NatGateway>> BeginCreateOrUpdateWithHttpMessagesAsync(string resourceGroupName, string natGatewayName, NatGateway parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Update a DDoS protection plan tags
+        /// Updates nat gateway tags.
         /// </summary>
         /// <param name='resourceGroupName'>
         /// The name of the resource group.
         /// </param>
-        /// <param name='ddosProtectionPlanName'>
-        /// The name of the DDoS protection plan.
+        /// <param name='natGatewayName'>
+        /// The name of the nat gateway.
         /// </param>
         /// <param name='parameters'>
-        /// Parameters supplied to the update DDoS protection plan resource
-        /// tags.
+        /// Parameters supplied to update nat gateway tags.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -246,9 +247,9 @@ namespace Microsoft.Azure.Management.Network
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<DdosProtectionPlan>> BeginUpdateTagsWithHttpMessagesAsync(string resourceGroupName, string ddosProtectionPlanName, TagsObject parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<NatGateway>> BeginUpdateTagsWithHttpMessagesAsync(string resourceGroupName, string natGatewayName, TagsObject parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Gets all DDoS protection plans in a subscription.
+        /// Gets all the Nat Gateways in a subscription.
         /// </summary>
         /// <param name='nextPageLink'>
         /// The NextLink from the previous successful call to List operation.
@@ -268,9 +269,9 @@ namespace Microsoft.Azure.Management.Network
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<IPage<DdosProtectionPlan>>> ListNextWithHttpMessagesAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<IPage<NatGateway>>> ListAllNextWithHttpMessagesAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Gets all the DDoS protection plans in a resource group.
+        /// Gets all nat gateways in a resource group.
         /// </summary>
         /// <param name='nextPageLink'>
         /// The NextLink from the previous successful call to List operation.
@@ -290,6 +291,6 @@ namespace Microsoft.Azure.Management.Network
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<IPage<DdosProtectionPlan>>> ListByResourceGroupNextWithHttpMessagesAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<IPage<NatGateway>>> ListNextWithHttpMessagesAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

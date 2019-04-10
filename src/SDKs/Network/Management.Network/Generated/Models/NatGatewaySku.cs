@@ -14,26 +14,26 @@ namespace Microsoft.Azure.Management.Network.Models
     using System.Linq;
 
     /// <summary>
-    /// Configuration of the protocol.
+    /// SKU of nat gateway
     /// </summary>
-    public partial class ProtocolConfiguration
+    public partial class NatGatewaySku
     {
         /// <summary>
-        /// Initializes a new instance of the ProtocolConfiguration class.
+        /// Initializes a new instance of the NatGatewaySku class.
         /// </summary>
-        public ProtocolConfiguration()
+        public NatGatewaySku()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the ProtocolConfiguration class.
+        /// Initializes a new instance of the NatGatewaySku class.
         /// </summary>
-        /// <param name="hTTPConfiguration">HTTP configuration of the
-        /// connectivity check.</param>
-        public ProtocolConfiguration(HTTPConfiguration hTTPConfiguration = default(HTTPConfiguration))
+        /// <param name="name">Name of Nat Gateway SKU. Possible values
+        /// include: 'Basic', 'Standard'</param>
+        public NatGatewaySku(string name = default(string))
         {
-            HTTPConfiguration = hTTPConfiguration;
+            Name = name;
             CustomInit();
         }
 
@@ -43,10 +43,11 @@ namespace Microsoft.Azure.Management.Network.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets HTTP configuration of the connectivity check.
+        /// Gets or sets name of Nat Gateway SKU. Possible values include:
+        /// 'Basic', 'Standard'
         /// </summary>
-        [JsonProperty(PropertyName = "HTTPConfiguration")]
-        public HTTPConfiguration HTTPConfiguration { get; set; }
+        [JsonProperty(PropertyName = "name")]
+        public string Name { get; set; }
 
     }
 }
