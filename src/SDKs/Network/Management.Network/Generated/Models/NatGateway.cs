@@ -46,8 +46,8 @@ namespace Microsoft.Azure.Management.Network.Models
         /// associated with the nat gateway resource.</param>
         /// <param name="publicIpPrefixes">An array of public ip prefixes
         /// associated with the nat gateway resource.</param>
-        /// <param name="subnets">Gets an array of references to the subnets
-        /// using this nat gateway resource.</param>
+        /// <param name="subnets">An array of references to the subnets using
+        /// this nat gateway resource.</param>
         /// <param name="resourceGuid">The resource GUID property of the nat
         /// gateway resource.</param>
         /// <param name="provisioningState">The provisioning state of the

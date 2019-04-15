@@ -30,7 +30,7 @@ namespace Microsoft.Azure.Management.Network.Models
         /// Initializes a new instance of the NatGatewaySku class.
         /// </summary>
         /// <param name="name">Name of Nat Gateway SKU. Possible values
-        /// include: 'Basic', 'Standard'</param>
+        /// include: 'Standard'</param>
         public NatGatewaySku(string name = default(string))
         {
             Name = name;
@@ -44,7 +44,7 @@ namespace Microsoft.Azure.Management.Network.Models
 
         /// <summary>
         /// Gets or sets name of Nat Gateway SKU. Possible values include:
-        /// 'Basic', 'Standard'
+        /// 'Standard'
         /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }

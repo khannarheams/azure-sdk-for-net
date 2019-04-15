@@ -342,52 +342,6 @@ namespace Microsoft.Azure.Management.Network
             }
 
             /// <summary>
-            /// Updates nat gateway tags.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='resourceGroupName'>
-            /// The name of the resource group.
-            /// </param>
-            /// <param name='natGatewayName'>
-            /// The name of the nat gateway.
-            /// </param>
-            /// <param name='parameters'>
-            /// Parameters supplied to update nat gateway tags.
-            /// </param>
-            public static NatGateway BeginUpdateTags(this INatGatewaysOperations operations, string resourceGroupName, string natGatewayName, TagsObject parameters)
-            {
-                return operations.BeginUpdateTagsAsync(resourceGroupName, natGatewayName, parameters).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Updates nat gateway tags.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='resourceGroupName'>
-            /// The name of the resource group.
-            /// </param>
-            /// <param name='natGatewayName'>
-            /// The name of the nat gateway.
-            /// </param>
-            /// <param name='parameters'>
-            /// Parameters supplied to update nat gateway tags.
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<NatGateway> BeginUpdateTagsAsync(this INatGatewaysOperations operations, string resourceGroupName, string natGatewayName, TagsObject parameters, CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.BeginUpdateTagsWithHttpMessagesAsync(resourceGroupName, natGatewayName, parameters, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
             /// Gets all the Nat Gateways in a subscription.
             /// </summary>
             /// <param name='operations'>
